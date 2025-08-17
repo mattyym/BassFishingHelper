@@ -1,0 +1,15 @@
+# Node / server
+server/node_modules/
+server/.env
+
+# General
+node_modules/
+.env
+*.log
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
