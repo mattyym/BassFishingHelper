@@ -6,6 +6,7 @@ server/.env
 node_modules/
 .env
 *.log
+.git-bfg-replace.txt
 
 # VS Code
 .vscode/
@@ -13,3 +14,4 @@ node_modules/
 # OS junk
 .DS_Store
 Thumbs.db
+

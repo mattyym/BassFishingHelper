@@ -1,8 +1,4 @@
 
-const OPEN_WEATHER_KEY = '0005c2699e45a7a90df92462f8db0bdf'; 
-const OPEN_WEATHER_URL = (lat, lon) =>
-  `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_KEY}`;
-
 const el = (id) => document.getElementById(id);
 const speciesEl = el('species');
 const waterTempEl = el('waterTemp');
@@ -273,8 +269,9 @@ function getPosition() {
 }
 
 async function fetchWeather(lat, lon) {
-  const url = OPEN_WEATHER_URL(lat, lon);
-  const res = await fetch(url);
+  const res = await fetch(`/api/weather?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`, {
+    headers: { 'Accept': 'application/json' }
+  });
   if (!res.ok) {
     const msg = await res.text();
     throw new Error(`Weather error (${res.status}): ${msg}`);
